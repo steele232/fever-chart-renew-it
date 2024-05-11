@@ -1,22 +1,6 @@
 "use client";
-
-import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import {
-  CategoryScale,
-  Chart,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  ChartDatasetProperties,
-  ChartDataset,
-  DatasetChartOptions,
-  LineOptions,
-  ChartOptions,
-  LineProps,
-  Tooltip,
-} from "chart.js";
 import {
   dataList,
   fillDataList,
@@ -25,26 +9,28 @@ import {
 } from "./firstChartProps";
 import { Button } from "@/components";
 import DatasetInput from "@/components/DatasetInput";
-import { FormProvider, useController, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { v4 } from "uuid";
-import getRandomColor from "@/helpers/getRandomColor";
 
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip
-);
-
-const FerverChartPage = () => {
+export const FerverChartPage = () => {
+  const actualDataList = fillDataList(dataList);
   const [datasets, setDatasets] = useState([v4(), v4()]);
   const [dataFormatted, setDataFormatted] = useState([]);
   const formMethods =
     useForm<Record<string, { name: string; file: Record<string, Blob> }>>();
 
   const [dataTransformed, setDataTransformed] = useState([]);
+
+  useEffect(() => {
+    const execution = async () => {
+      const result = await datasetsFormatted();
+      // setDataTransformed(result);
+    };
+
+    execution();
+  }, [formMethods.getValues()]);
+
+  console.log(formMethods.getValues());
 
   const datasetsFormatted = async () => {
     const datasets = Object.values(formMethods.getValues());
@@ -70,19 +56,14 @@ const FerverChartPage = () => {
         // console.log(result);
       }
 
-      const color = getRandomColor();
-
       formatted.push({
         label: dataset.name,
-        data: data.map((e) => {
-          return { y: e.bufferConsumed, x: e.progress };
-        }),
-        borderColor: color,
-        backgroundColor: color,
-        pointBorderWidth: 4,
+        data,
+        borderColor: "#1f2937",
+        backgroundColor: "#1f2937",
       });
     }
-    setDataTransformed([...formatted]);
+
     return formatted;
   };
 
@@ -102,29 +83,17 @@ const FerverChartPage = () => {
                     return <DatasetInput key={e} id={e} />;
                   })}
                 </div>
-                <div className="grid grid-flow-col justify-between">
-                  <Button
-                    className="mt-8"
-                    variant="outlined"
-                    onClick={() => {
-                      setDatasets([...datasets, v4()]);
-                    }}
-                  >
-                    Add new dataset
-                  </Button>
-                  <Button
-                    className="mt-8"
-                    onClick={() => {
-                      datasetsFormatted();
-                    }}
-                  >
-                    Update
-                  </Button>
-                </div>
-
-                {/* <div>
+                <Button
+                  className="mt-8"
+                  onClick={() => {
+                    setDatasets([...datasets, v4()]);
+                  }}
+                >
+                  Add new dataset
+                </Button>
+                <div>
                   <pre>{JSON.stringify(formMethods.watch(), null, 2)}</pre>
-                </div> */}
+                </div>
               </div>
 
               <div className="w-full h-full">
@@ -140,5 +109,3 @@ const FerverChartPage = () => {
     </div>
   );
 };
-
-export default FerverChartPage;
