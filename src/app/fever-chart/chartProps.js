@@ -55,7 +55,20 @@ export const chartData = ({ datasets }) => {
 export const chartOptions = {
   spanGaps: true,
   scales: {
-    y: { beginAtZero: true },
+    y: {
+      beginAtZero: true,
+      title: {
+        display: true,
+        text: "Buffer Consumed",
+      },
+    },
+    x: {
+      beginAtZero: true,
+      title: {
+        display: true,
+        text: "Chain Completed",
+      },
+    },
   },
   plugins: {
     legend: {
@@ -71,7 +84,7 @@ export const chartOptions = {
     },
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "Fever Chart",
     },
     tooltip: {
       filter: function (context) {
@@ -100,10 +113,10 @@ export const chartOptions = {
           // let label = context.dataset.label || "";
         },
         label: function (context) {
-          return `Buffer Consumed: ${context.parsed.y}`;
+          return `Buffer Consumed: ${context.parsed.y}%`;
         },
         afterLabel: function (context) {
-          return `Chain Completed: ${context.parsed.x}\n`;
+          return `Chain Completed: ${context.parsed.x}%\n`;
         },
       },
     },

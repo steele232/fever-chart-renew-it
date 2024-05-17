@@ -1,107 +1,110 @@
 import { random } from "lodash";
 
+const getRandomDate = () =>
+  new Date(2024, random(1, 11), random(1, 27)).toString();
+
 export const dataListOne = [
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 0,
-    bufferConsumed: 5,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 20,
-    bufferConsumed: 20,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 30,
-    bufferConsumed: 40,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 40,
-    bufferConsumed: 40,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 50,
-    bufferConsumed: 20,
+    bufferConsumed: 41,
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 60,
-    bufferConsumed: 80,
+    bufferConsumed: 61,
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 70,
-    bufferConsumed: 60,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 80,
-    bufferConsumed: 70,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 90,
-    bufferConsumed: 50,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 100,
-    bufferConsumed: 80,
+    bufferConsumed: random(0, 100),
   },
 ];
 export const dataListTwo = [
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 0,
-    bufferConsumed: 20,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 20,
-    bufferConsumed: 20,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 30,
-    bufferConsumed: 40,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 40,
-    bufferConsumed: 40,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 50,
-    bufferConsumed: 20,
+    bufferConsumed: 41,
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 60,
-    bufferConsumed: 80,
+    bufferConsumed: 61,
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 70,
-    bufferConsumed: 60,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 80,
-    bufferConsumed: 70,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
+    date: getRandomDate(),
     progress: 90,
-    bufferConsumed: 50,
+    bufferConsumed: random(0, 100),
   },
   {
-    date: new Date(2024, random(1, 11), random(1, 27)).toString(),
-    progress: 90,
-    bufferConsumed: 100,
+    date: getRandomDate(),
+    progress: 100,
+    bufferConsumed: random(0, 100),
   },
 ];
 
@@ -119,8 +122,8 @@ const fakeDataSets = [
         }),
       };
     }),
-    borderColor: "#1f2937",
-    backgroundColor: "#1f2937",
+    borderColor: "#7300ff",
+    backgroundColor: "#7300ff",
     pointBorderWidth: 4,
   },
   {
@@ -136,9 +139,9 @@ const fakeDataSets = [
         }),
       };
     }),
-    borderColor: "orange",
+    borderColor: "#0598fa",
     borderWidth: null,
-    backgroundColor: "orange",
+    backgroundColor: "#0598fa",
     pointBorderWidth: 4,
   },
 ];

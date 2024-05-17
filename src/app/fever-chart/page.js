@@ -8,7 +8,7 @@ const FeverChartPage = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       setDatasets(fakeDataSets);
-    }, 3000);
+    }, 1000);
 
     () => clearTimeout(id);
   }, []);

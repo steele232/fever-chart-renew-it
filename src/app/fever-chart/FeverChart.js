@@ -9,6 +9,7 @@ import {
   Filler,
   Legend,
   Tooltip,
+  Title,
 } from "chart.js";
 import { chartData, chartOptions } from "./chartProps";
 
@@ -19,7 +20,8 @@ Chart.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
+  Title
 );
 
 const FeverChart = ({ datasets }) => {
