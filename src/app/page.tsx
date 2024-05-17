@@ -9,6 +9,8 @@ import {
   PointElement,
   LineElement,
   Filler,
+  Legend,
+  LegendElement,
   ChartDatasetProperties,
   ChartDataset,
   DatasetChartOptions,
@@ -18,7 +20,7 @@ import {
   Tooltip,
 } from "chart.js";
 import {
-  dataList,
+  dataListOne,
   fillDataList,
   firstChartData,
   firstChartOptions,
@@ -35,7 +37,8 @@ Chart.register(
   PointElement,
   LineElement,
   Filler,
-  Tooltip
+  Tooltip,
+  Legend
 );
 
 const FerverChartPage = () => {
@@ -75,7 +78,7 @@ const FerverChartPage = () => {
       formatted.push({
         label: dataset.name,
         data: data.map((e) => {
-          return { y: e.bufferConsumed, x: e.progress };
+          return { y: e.bufferConsumed, x: e.progress, date: e.date };
         }),
         borderColor: color,
         backgroundColor: color,

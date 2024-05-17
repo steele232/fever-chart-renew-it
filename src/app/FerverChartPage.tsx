@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
-  dataList,
+  dataListOne,
   fillDataList,
   firstChartData,
   firstChartOptions,
@@ -13,7 +13,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { v4 } from "uuid";
 
 export const FerverChartPage = () => {
-  const actualDataList = fillDataList(dataList);
+  const actualDataList = fillDataList(dataListOne);
   const [datasets, setDatasets] = useState([v4(), v4()]);
   const [dataFormatted, setDataFormatted] = useState([]);
   const formMethods =
