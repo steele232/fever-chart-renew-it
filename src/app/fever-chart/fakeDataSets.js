@@ -1,7 +1,6 @@
 import { random } from "lodash";
 
-const getRandomDate = () =>
-  new Date(2024, random(1, 11), random(1, 27)).toString();
+const getRandomDate = () => new Date(2024, random(1, 11), random(1, 27));
 
 export const dataListOne = [
   {

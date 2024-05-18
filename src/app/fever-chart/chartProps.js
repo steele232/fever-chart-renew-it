@@ -31,7 +31,7 @@ export const chartData = ({ datasets }) => {
           data: e.data.map((e) => {
             const y = e.y < 0 ? 0 : e.y;
             const x = e.x < 0 ? 0 : e.x;
-            return { ...e.data, y, x };
+            return { ...e, y, x };
           }),
         };
       }),
@@ -111,6 +111,7 @@ export const chartOptions = {
           var title = "";
 
           for (let element of context) {
+            console.log(element.raw);
             title += `${element.dataset.label} (${new Date(
               element.raw.date
             ).toLocaleDateString([], {
