@@ -6,8 +6,8 @@ const getRandomDate = () =>
 export const dataListOne = [
   {
     date: getRandomDate(),
-    progress: 0,
-    bufferConsumed: random(0, 100),
+    progress: -10,
+    bufferConsumed: -10,
   },
   {
     date: getRandomDate(),

@@ -23,7 +23,18 @@ export const chartData = ({ datasets }) => {
   return {
     labels: range(0, 101),
     datasets: [
-      ...datasets,
+      ...datasets.map((e) => {
+        // console.log(e);
+
+        return {
+          ...e,
+          data: e.data.map((e) => {
+            const y = e.y < 0 ? 0 : e.y;
+            const x = e.x < 0 ? 0 : e.x;
+            return { ...e.data, y, x };
+          }),
+        };
+      }),
       {
         label: "Dataset Green",
         data: [15, ...Array(99).fill(null), 75],
