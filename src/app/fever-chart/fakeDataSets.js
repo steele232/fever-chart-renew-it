@@ -139,7 +139,7 @@ const fakeDataSets = [
       };
     }),
     borderColor: "#0598fa",
-    borderWidth: null,
+    // borderWidth: null,
     backgroundColor: "#0598fa",
     pointBorderWidth: 4,
   },

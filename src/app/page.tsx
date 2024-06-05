@@ -1,7 +1,8 @@
 "use client";
 
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
+import FeverChart from "./fever-chart/FeverChart";
 import {
   CategoryScale,
   Chart,
@@ -42,7 +43,7 @@ Chart.register(
 );
 
 const FerverChartPage = () => {
-  const [datasets, setDatasets] = useState([v4(), v4()]);
+  const [datasets, setDatasets] = useState([v4()]);
   const [dataFormatted, setDataFormatted] = useState([]);
   const formMethods =
     useForm<Record<string, { name: string; file: Record<string, Blob> }>>();
@@ -73,7 +74,7 @@ const FerverChartPage = () => {
         // console.log(result);
       }
 
-      const color = getRandomColor();
+      const color = "black"; // getRandomColor();
 
       formatted.push({
         label: dataset.name,
@@ -130,12 +131,15 @@ const FerverChartPage = () => {
                 </div> */}
               </div>
 
-              <div className="w-full h-full">
-                <Line
-                  data={firstChartData({ datasets: dataTransformed })}
-                  options={{ ...firstChartOptions }}
+              <div className="p-10">
+                <div className="max-w-screen-2xl min-h-screen mx-auto">
+                <FeverChart
+
+                  datasets={ dataTransformed.filter(v => !!v)}
                 />
+                </div>
               </div>
+              {/* <div className="w-full h-full"> </div> */}
             </FormProvider>
           </div>
         </div>
